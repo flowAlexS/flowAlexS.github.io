@@ -1,11 +1,3 @@
-if (window.innerWidth < 600) {
-
-    console.log("helo world");
-}
-
-
-
-
 const form = document.querySelector("#commentForm");
 const name = document.querySelector("#username");
 const comment = document.querySelector("#comment");
