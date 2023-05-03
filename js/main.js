@@ -49,6 +49,12 @@ form.addEventListener("submit", (e) => {
 
 let body = document.querySelector("body");
 let bodyContent = body.innerHTML;
+if (window.innerWidth < 600) 
+{
+    body.style.backgroundColor = 'black';
+    body.innerHTML = 'notDeveloped for mobiles yet';
+}
+
 window.addEventListener("resize", () => {
     if (window.innerWidth < 600)
     {
