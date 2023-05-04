@@ -21,12 +21,14 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+
 }
 
 html {
+    overflow-x: hidden;
     font-size: 62.5%;
     scroll-behavior: smooth;
-    box-sizing: border-box;
 }
 
 
@@ -75,6 +77,11 @@ h1, h2, h3, h4, h5 {
     .flex-right {
         display: flex;
         justify-content: flex-end;
+    }
+
+    .inline-forever {
+        display: flex;
+        justify-content: space-between;
     }
 
     /* FadeIn animation */
@@ -158,7 +165,7 @@ h1, h2, h3, h4, h5 {
     }
 
     .nav-link {
-        padding: 2rem
+        padding: 2rem;
     }
 
     .nav-link:hover {
@@ -198,6 +205,8 @@ h1, h2, h3, h4, h5 {
         background-color: var(--accent-font-color);
         font-weight: bold;
     }
+
+
     /* Lists */
 .list {
     list-style: none;
@@ -212,6 +221,21 @@ h1, h2, h3, h4, h5 {
     display: flex;
     gap: calc(4rem);
 }
+
+    /* List toggler */
+#nav-toggler {
+    background-color: inherit;
+    padding: 2rem;
+    border: 0;
+    color: var(--primary-font-color);
+    display: none;
+}
+
+#nav-toggler:hover {
+    background-color: var(--accent-font-color);
+    transition: 0.2s;
+}
+
     /* Texts */
 .text-centered {
     text-align: center;
@@ -497,4 +521,102 @@ h1, h2, h3, h4, h5 {
 #contact--description {
     padding: 2rem;
     display: none;
+}
+
+
+@media screen and  (max-width:600px) {
+
+    /* Global */
+    .container {
+        width: 100%;
+    }
+
+    /* Reusable code */
+
+    /* Clip Paths */
+    .skew--right {
+        clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    }
+
+    .skew--left {
+        clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 60%);
+    }
+
+    /* Displays */
+    .flex-between {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: calc(0.5rem);
+    }
+
+    /* Lists */
+        /* Nav toggler */
+    #nav-toggler {
+        display: inline-block;
+    }
+
+    #navbar {
+        background-color: var(--accent-font-color);
+        width: 100%;
+    }
+
+    .no-show {
+        display: none;
+    }
+    .list--inline {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .list {
+        width: 100%;
+    }
+
+    .list li {
+        width: 100%;
+        padding: 2rem;
+    }
+
+    .list--inline li:hover{
+        background-color: blue;
+    }
+
+        /* links */
+    a {
+        width: inherit;
+    }
+        /* Navlinks */
+
+
+    
+        
+
+    /* Header */
+
+    #header {
+        position: static;
+        text-align: center;
+        padding: 0;
+    }
+
+    .header {
+        width: 100%;
+        padding: 1rem;
+        margin: 0;
+    }
+
+    /* Homepage */
+    .home-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .home--image {
+        margin-top: 2rem;
+    }
+
+
 }

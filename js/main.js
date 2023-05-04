@@ -47,26 +47,58 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
 })
 
-let body = document.querySelector("body");
-let bodyContent = body.innerHTML;
+
+// Removing the nav-links default design and adding it back on resize
+const navlinks = document.querySelectorAll("#navbar a");
 if (window.innerWidth < 600) 
-{
-    body.style.backgroundColor = 'black';
-    body.innerHTML = 'notDeveloped for mobiles yet';
+{    
+    navlinks.forEach((nav) => {
+        if(nav.classList.contains('nav-link'))
+        {
+            nav.classList.remove('nav-link');
+        }
+    })
 }
 
 window.addEventListener("resize", () => {
     if (window.innerWidth < 600)
     {
-        body.style.backgroundColor = 'black';
-        body.innerHTML = 'notDeveloped for mobiles yet';
+        
+        navlinks.forEach((nav) => {
+            if(nav.classList.contains('nav-link'))
+            {
+                nav.classList.remove('nav-link');
+            }
+    })
     }
     else
     {
-        body.innerHTML = bodyContent;
-        body.style.backgroundColor = 'white';
+        navlinks.forEach((nav) => {
+            if(!nav.classList.contains('nav-link'))
+            {
+                nav.classList.add('nav-link');
+            }
+        
+        })
     }
 })
+
+// Toggling the navbar
+const navToggler = document.querySelector("#nav-toggler");
+const navbar = document.querySelector("#navbar");
+
+
+navToggler.addEventListener("click", () => {
+    if (navbar.classList.contains('no-show'))
+    {
+        navbar.classList.remove('no-show');
+    }
+    else {
+        navbar.classList.add('no-show');
+    }
+})
+
+
 
 
 const post = document.querySelector("#post");
