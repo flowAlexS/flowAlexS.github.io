@@ -104,6 +104,28 @@ h1, h2, h3, h4, h5 {
 
     /* Inputs */
 
+    /* Go top button */
+
+    #goTop {
+        position: fixed;
+        top: 50px;
+        right: 10px;
+        z-index: 5;
+        width: 50px;
+        height: 50px;
+        background-color: var(--accent-font-color);
+        border: 0;
+        border-radius: 5px;
+        display: none;
+    }
+
+    #goTop:hover {
+        background-color: var(--secondary-font-color);
+        color: var(--primary-font-color);
+        transition: all 0.4s;
+    }
+
+
     .form-group {
         width: 90%;
         margin: auto;
@@ -328,7 +350,7 @@ h1, h2, h3, h4, h5 {
 #work {
     margin: 4rem 0;
     background-color: var(--primary-color);
-    min-height: 80vh;
+    min-height: 100vh;
 }
 
 .work--projects {
@@ -391,9 +413,10 @@ h1, h2, h3, h4, h5 {
   }
 
 .work--section {
+    width: 30%;
     transform: translateY(80%);
     padding: 2rem;
-    margin: 6rem 4rem;
+    margin: 5rem 4rem;
     box-shadow: 0 0 6px 3px var(--secondary-font-color);
     border-radius: 20px;
 }
@@ -411,22 +434,33 @@ h1, h2, h3, h4, h5 {
     width: 3%;
 }
 
-#html {
+
+.skill-level {
+    padding: 0.2rem;    
+}
+
+
+.skill-initial-level {
+    width: 100%;
+    background-color: var(--accent-font-color); 
+}
+.html {
     animation: html 3s forwards;
 }
 
-#js {
+
+.js {
     animation: js 3s forwards;
 }
 
-#py {
+.py {
     animation: py 3s forwards;
 }
+
 
 @keyframes html {
     0% {
         width: 3%;
-        
     }
 
     100% {
@@ -523,7 +557,21 @@ h1, h2, h3, h4, h5 {
     display: none;
 }
 
+/* Tablets */
+@media screen and (max-width: 875px) {
+    .footer--copy {
+        display: none;
+    }
 
+    .bar {
+        display: none;
+    }
+
+}
+
+
+
+/* Mobile design */
 @media screen and  (max-width:600px) {
 
     /* Global */
@@ -618,5 +666,55 @@ h1, h2, h3, h4, h5 {
         margin-top: 2rem;
     }
 
+    /* About Section */
+   
+
+
+
+    .about {
+        width: 90%;
+        margin: 4rem auto;
+    }
+
+
+    /* Work Section */
+    #work {
+        padding: 4rem 0;
+    }
+
+
+    .work--projects {
+        margin: 1rem auto;
+        width: 80%;
+    }
+
+    .work--section {
+        padding: 1rem;
+        margin: 0 auto;
+        width: 60%;
+    }
+
+    /* Contact section */
+
+    .contact--form {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+
+    /* Footer section */
+    .footer--copy {
+        display: none;
+    }
+
+    .footer--contact {
+        gap: 4rem;
+    }
+
+    
+
+    .bar {
+        display: none;
+    }
 
 }

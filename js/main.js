@@ -13,6 +13,17 @@ function makeDiv (message, element) {
     }, 2000)
 }
 
+function elementIsVisibleInViewport(el, partiallyVisible = false) {
+    const { top, left, bottom, right } = el.getBoundingClientRect();
+    const { innerHeight, innerWidth } = window;
+    return partiallyVisible
+      ? ((top > 0 && top < innerHeight) ||
+          (bottom > 0 && bottom < innerHeight)) &&
+          ((left > 0 && left < innerWidth) || (right > 0 && right < innerWidth))
+      : top >= 0 && left >= 0 && bottom <= innerHeight && right <= innerWidth;
+  };
+
+
 form.addEventListener("submit", (e) => {
     if (!name.value){
         makeDiv("Enter a username", name.parentElement);
@@ -98,8 +109,18 @@ navToggler.addEventListener("click", () => {
     }
 })
 
+// Navbar on list item click event
 
+const navItems = document.querySelectorAll("#navbar li");
+navItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+        const href = item.firstChild.getAttribute("href");
+        document.querySelector(href).scrollIntoView();
+        navbar.classList.add('no-show');
 
+    })
+
+})
 
 const post = document.querySelector("#post");
 const contactShort = document.querySelector("#contact--description");
@@ -110,3 +131,36 @@ post.addEventListener("mouseover", () => {
 post.addEventListener("mouseout", () => {
     contactShort.style.display = 'none';
 })
+
+const goTop = document.querySelector("#goTop");
+
+document.addEventListener("scroll", () => {
+    if (!elementIsVisibleInViewport(document.querySelector("#header"), true) &&
+        !elementIsVisibleInViewport(document.querySelector("#footer"), true))
+    {
+        goTop.style.display = 'block';
+    }
+    else {
+        goTop.style.display = 'none';
+    }
+
+    skills = {
+        html: document.querySelector("#html"),
+        js: document.querySelector("#js"),
+        py: document.querySelector("#py")
+    }
+
+    if (elementIsVisibleInViewport(document.querySelector(".work--section")))
+    {
+        skills.html.classList.toggle("html");
+        skills.js.classList.toggle("js");
+        skills.py.classList.toggle("py");
+    }
+})
+
+
+goTop.addEventListener("click", () => {
+    scroll(0, 0);
+})
+
+
