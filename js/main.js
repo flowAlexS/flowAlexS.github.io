@@ -161,6 +161,7 @@ document.addEventListener("scroll", () => {
 
 goTop.addEventListener("click", () => {
     scroll(0, 0);
+    goTop.style.display = 'none';
 })
 
 
